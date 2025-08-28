@@ -1,0 +1,12 @@
+[package]
+name = "raveslinger"
+version = "0.0.1"
+edition = "2024.beta"
+
+[dependencies.Sui]
+git = "https://github.com/MystenLabs/sui.git"
+subdir = "crates/sui-framework/packages/sui-framework"
+branch = "testnet"
+
+[addresses]
+raveslinger = "0x0"

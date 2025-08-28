@@ -1,0 +1,15 @@
+﻿# Rust
+/target/
+**/*.rs.bk
+
+# Build products
+*.rlib
+*.dll
+*.pdb
+*.exe
+
+# Env & IDE
+.env
+.env.*
+.vscode/
+.idea/

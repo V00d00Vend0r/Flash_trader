@@ -1,0 +1,35 @@
+[llm]
+backend = "onnx"
+
+[llm.onnx]
+url = "http://127.0.0.1:8009"
+
+[decision.stages.phi3]
+weight = 1.0
+
+[engines.latency]
+enabled = true
+soft_ms = 40
+hard_ms = 120
+soft_penalty = 0.05
+hard_penalty = 0.20
+
+[engines.optimization]
+enabled = true
+cpu_threshold = 75.0
+gpu_threshold = 85.0
+memory_threshold = 80.0
+network_threshold = 70.0
+history_window = 5
+adjustment_step = 5.0
+min_network_bandwidth = 20.0
+confidence_penalty = 0.05
+
+[execution.sui]
+rpc_url = "https://fullnode.mainnet.sui.io:443"
+gas_price_multiplier = 1.10
+router = "cetus"
+
+[execution.sui.pools.SUI_USDC]
+address = "0xPOOL_OBJECT_ID"
+fee_bps = 30

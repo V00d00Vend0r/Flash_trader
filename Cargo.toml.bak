@@ -1,0 +1,59 @@
+[package]
+name = "raveslinger"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+async-trait = "0.1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+# Use native TLS on Windows by omitting the rustls-tls feature.  The rustls
+# feature pulls in ring which requires a C compiler on Windows/MinGW.  This
+# configuration keeps requests portable across platforms without a C toolchain.
+reqwest = { version = "0.12", features = ["json"] }
+toml = "0.8"
+# Only declare the regex crate once.
+regex = "1"
+
+# Additional dependencies added for extended functionality.  All crates are
+# configured with minimal features to avoid pulling in native toolchains on
+# Windows.
+# Async scheduling library used for lightweight tasks.  Default features are
+# disabled to avoid optional asm support via the psm crate.
+tasklet = { version = "0.2.9", default-features = false }
+# Aya eBPF library.  Enable only the tokio integration and disable async-std to
+# keep the dependency tree lean.
+aya = { version = "0.13.1", default-features = false, features = ["tokio"] }
+# CSV parsing.  This crate is pure Rust and does not require external C code.
+csv = "1.3.1"
+# Polars DataFrame library with only the lazy query engine and CSV reader
+# enabled.  Disabling default features avoids pulling in heavy optional
+# dependencies like OpenSSL, BLAKE3 and JSON libraries.
+polars = { version = "0.50.0", default-features = false, features = ["lazy", "csv"] }
+# Stochastic simulation library.  Disabling default features avoids pulling in
+# optional CUDA or AI backends, which depend on external toolchains.  You can
+# enable additional features in your own Cargo.toml if needed.
+stochastic-rs = { version = "0.13.4", default-features = false }
+# Ratatui terminal UI library.  Enable only the crossterm backend to avoid
+# pulling in termion or other backends with extra dependencies.
+ratatui = { version = "0.29.0", default-features = false, features = ["crossterm"] }
+# Warp HTTP server.  No features are enabled by default, making this a light
+# dependency that does not pull in compression or multipart support.  Enable
+# additional features as needed in your own project.
+warp = { version = "0.4.2" }
+# Ockam secure messaging library.  Only enable alloc and std features to keep
+# the build portable.  Additional transports and storage backends can be
+# enabled by adding features like "ockam_transport_tcp" or "ockam_transport_udp".
+ockam = { version = "0.150.0", default-features = false, features = ["alloc", "std"] }
+hex = "0.4.3"
+dotenvy = "0.15.7"
+sui-sdk = { git = "https://github.com/MystenLabs/sui", version = "1.56.0" }
+
+# --- FIX Polars/Planus mismatch ---
+[patch.crates-io]
+planus = "=1.1.1"
