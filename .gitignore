@@ -13,3 +13,12 @@
 .env.*
 .vscode/
 .idea/
+# Windows / IDE
+.vs/
+Thumbs.db
+desktop.ini
+*.user
+*.suo
+# Logs & temp
+*.log
+*.tmp
