@@ -1,0 +1,13 @@
+﻿[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "signal"] }
+dotenvy = "0.15"
+
+# local crates
+ravenslinger_data = { path = "../data" }
+adapters_cetus    = { path = "../adapters/cetus" }

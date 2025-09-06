@@ -22,3 +22,9 @@ desktop.ini
 # Logs & temp
 *.log
 *.tmp
+tools/cetus_sidecar/node_modules/
+tools/cetus_sidecar/dist/
+tools/cetus_sidecar/.env
+target/
+.vscode/
+.idea/

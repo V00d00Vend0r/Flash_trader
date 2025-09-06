@@ -1,0 +1,30 @@
+{
+    "name": "cetus_sidecar",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "tsx src/server.ts",
+        "build": "tsc -p tsconfig.json",
+        "start": "node --env-file=.env dist/server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@cetusprotocol/aggregator-sdk": "^1.1.5",
+        "@cetusprotocol/cetus-sui-clmm-sdk": "^5.4.0",
+        "@mysten/sui": "^1.37.6",
+        "bn.js": "^5.2.2",
+        "dotenv": "^17.2.2",
+        "express": "^5.1.0",
+        "zod": "^4.1.5"
+    },
+    "devDependencies": {
+        "tslib": "^2.8.1",
+        "tsx": "^4.20.5",
+        "typescript": "^5.9.2"
+    },
+    "type": "module"
+}

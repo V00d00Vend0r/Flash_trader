@@ -13,6 +13,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "adapters_cetus"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "tokio",
+]
+
+[[package]]
 name = "addchain"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -311,6 +322,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b0674a1ddeecb70197781e945de4b3b8ffb61fa939a5597bcf48503737663100"
 dependencies = [
  "backtrace",
+]
+
+[[package]]
+name = "app"
+version = "0.1.0"
+dependencies = [
+ "adapters_cetus",
+ "anyhow",
+ "dotenvy",
+ "ravenslinger_data",
+ "tokio",
 ]
 
 [[package]]
@@ -7794,6 +7816,7 @@ dependencies = [
 name = "raveslinger"
 version = "0.1.0"
 dependencies = [
+ "adapters_cetus",
  "anyhow",
  "async-trait",
  "aya",
@@ -7803,6 +7826,7 @@ dependencies = [
  "ockam",
  "polars",
  "ratatui",
+ "ravenslinger_data",
  "regex",
  "reqwest",
  "serde",
