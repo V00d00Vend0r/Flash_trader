@@ -7784,6 +7784,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ravenslinger_data"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+]
+
+[[package]]
 name = "raveslinger"
 version = "0.1.0"
 dependencies = [
