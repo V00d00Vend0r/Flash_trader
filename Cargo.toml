@@ -6,6 +6,10 @@ edition = "2021"
 [workspace]
 members = ["crates/data"]
 
+[[bin]]
+name = "pairs_fetcher"
+path = "src/pairs_fetcher.rs"
+
 [dependencies]
 anyhow = "1"
 async-trait = "0.1"
